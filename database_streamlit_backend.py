@@ -35,6 +35,13 @@ graph.add_edge("chat_node", END)
 chatbot = graph.compile(checkpointer=checkpointer)
 
 
+def retrieve_all_threads():
+    all_threads = set()
+    for checkpoint in checkpointer.list(None):
+        all_threads.add(checkpoint.config['configurable']['thread_id'])
+
+    return list(all_threads)
+
 # for message_chunk , metadata in chatbot.stream(
 #     {"messages":[HumanMessage(content="what is the receipe of panner 65?")]},
 #     config={'configurable': {'thread_id': "thread-1"}},
@@ -44,9 +51,10 @@ chatbot = graph.compile(checkpointer=checkpointer)
 #         print(message_chunk.content, end='', flush=True)
 
 response=chatbot.invoke(
-    {"messages":[HumanMessage(content="my name is yash?")]},
-    config={'configurable': {'thread_id': "thread-1"}}
+    {"messages":[HumanMessage(content="I love india write a poem?")]},
+    config={'configurable': {'thread_id': "thread-3"}}
 )
 
-# print(chatbot.get_state(config={'configurable': {'thread_id': "thread-1"}}).values['messages'])
+# # print(chatbot.get_state(config={'configurable': {'thread_id': "thread-1"}}).values['messages'])
 print(response)
+
