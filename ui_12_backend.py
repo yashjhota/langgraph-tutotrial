@@ -31,4 +31,18 @@ graph.add_edge("chat_node", END)
 
 chatbot = graph.compile(checkpointer=checkpointer)
 
-# Example usage in a Streamlit app
+
+# for message_chunk , metadata in chatbot.stream(
+#     {"messages":[HumanMessage(content="what is the receipe of panner 65?")]},
+#     config={'configurable': {'thread_id': "thread-1"}},
+#     stream_mode="messages"
+# ):
+#     if message_chunk.content:
+#         print(message_chunk.content, end='', flush=True)
+
+response=chatbot.invoke(
+    {"messages":[HumanMessage(content="what is the receipe of panner 65?")]},
+    config={'configurable': {'thread_id': "thread-1"}}
+)
+
+print(chatbot.get_state(config={'configurable': {'thread_id': "thread-1"}}).values['messages'])
