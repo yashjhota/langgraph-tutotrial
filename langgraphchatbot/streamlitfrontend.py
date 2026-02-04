@@ -4,6 +4,10 @@ from langgrahbackend import chatbot  # import the chatbot from backend
 
 # st.session_state  -> to store chat messages it is a dict like object -> it does not reset on rerun
 
+st.title("LangGraph Chatbot")
+
+
+
 
 
 # store the chat messages in the session state

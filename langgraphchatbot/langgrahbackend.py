@@ -6,9 +6,10 @@ from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.graph.message import add_messages
 from dotenv import load_dotenv
 
+
 load_dotenv()
 
-llm = ChatGroq(model="openai/gpt-oss-120b")
+llm = ChatGroq(model="openai/gpt-oss-120b", temperature=0.7)
 
 
 class ChatState(TypedDict):
