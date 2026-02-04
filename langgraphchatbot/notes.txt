@@ -1,0 +1,18 @@
+1 Build the chabtot with feature of session state for storing previous message or history
+2 Adding streaming not to wait
+3 Adding resume chat feature previous conversion we can access as well , by using the concpet of threading
+add a sidebar with title + A title named My Conversations'
+generate dynamic thread Id and add it to the session
+Display the thread id in sidebar
+------------------------------------------
+add a New Chat button
+On Click of new chat open a new chat window
+generate a new thread_id
+* save it in session
+* reset message history
+------------------------------------
+create a list to store all thread ids
+Load all the thread ids in the sidebar
+convert the side bar text to clickable buttons
+---------------------------------------------
+on click of a particular thread id load that particular conversation
